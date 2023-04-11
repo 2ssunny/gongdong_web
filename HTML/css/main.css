@@ -8,6 +8,10 @@
   color: ivory;
 } */
 
+input {
+  float: right;
+}
+
 ol {
   border-right: 1px solid gray;
   width: 250px;
