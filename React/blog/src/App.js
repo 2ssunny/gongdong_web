@@ -8,7 +8,9 @@ function App() {
     "Web programming",
     "Javascript",
   ]);
-  let [like, setLike] = useState(0);
+  let [like1, setLike1] = useState(0);
+  let [like2, setLike2] = useState(0);
+  let [like3, setLike3] = useState(0);
 
   return (
     <div>
@@ -18,7 +20,19 @@ function App() {
 
       <button
         onClick={() => {
-          setTitle(["공동교육과정", "Web programming", "Javascript"]);
+          setTitle(["공동교육과정", "Web Developing", "React"]);
+        }}
+      >
+        Button
+      </button>
+
+      <button
+        onClick={() => {
+          setTitle([
+            "SmartPhone Recommendation",
+            "Web programming",
+            "Javascript",
+          ]);
         }}
       >
         Button
@@ -29,23 +43,43 @@ function App() {
           {title[0]}
           <span
             onClick={() => {
-              setLike(like + 1);
+              setLike1(like1 + 1);
             }}
           >
             Good!👍
           </span>
-          {like}
+          {like1}
         </h4>
         <p>2023/4/11</p>
       </div>
 
       <div className="list">
-        <h4>{title[1]}</h4>
+        <h4>
+          {title[1]}
+          <span
+            onClick={() => {
+              setLike2(like2 + 1);
+            }}
+          >
+            Good!👍
+          </span>
+          {like2}
+        </h4>
         <p>2023/4/11</p>
       </div>
 
       <div className="list">
-        <h4>{title[2]}</h4>
+        <h4>
+          {title[2]}
+          <span
+            onClick={() => {
+              setLike3(like3 + 1);
+            }}
+          >
+            Good!👍
+          </span>
+          {like3}
+        </h4>
         <p>2023/4/11</p>
       </div>
     </div>
