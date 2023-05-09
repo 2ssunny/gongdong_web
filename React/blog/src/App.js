@@ -26,22 +26,31 @@ function App() {
           </div>
         );
       })}
-      {modal ? <Modal></Modal> : ""}
+      {modal ? <Modal modal={modal} setModal={setModal}></Modal> : ""}
     </div>
   );
 }
 
-function Modal() {
+function Modal(props) {
   return (
     <div className="modal">
       <div className="modal-body">
-        <div>web programming</div>
-        <div>
+        <div className="modal-title">web programming</div>
+        <div className="modal-date">
           2023-05-09
           <span>👍</span>
           <span>5</span>
         </div>
-        <div>web programming is funny subject</div>
+        <div className="modal-contents">web programming is funny subject</div>
+
+        <button
+          className="modal-button"
+          onClick={() => {
+            props.modal ? props.setModal(false) : props.setModal(true);
+          }}
+        >
+          check
+        </button>
       </div>
     </div>
   );
