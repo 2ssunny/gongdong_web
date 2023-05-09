@@ -6,6 +6,8 @@ import data from "./data.js";
 function App() {
   let [datas, setDatas] = useState(data);
   let [modal, setModal] = useState(false);
+  let [index, setIndex] = useState(0);
+
   return (
     <div>
       <div className="black-nav">
@@ -18,6 +20,7 @@ function App() {
               className="title"
               onClick={() => {
                 modal ? setModal(false) : setModal(true);
+                setIndex(i);
               }}
             >
               {row.title}
@@ -26,7 +29,17 @@ function App() {
           </div>
         );
       })}
-      {modal ? <Modal modal={modal} setModal={setModal}></Modal> : ""}
+      {modal ? (
+        <Modal
+          modal={modal}
+          setModal={setModal}
+          data={datas}
+          setDatas={setDatas}
+          index={index}
+        ></Modal>
+      ) : (
+        ""
+      )}
     </div>
   );
 }
@@ -35,13 +48,13 @@ function Modal(props) {
   return (
     <div className="modal">
       <div className="modal-body">
-        <div className="modal-title">web programming</div>
+        <div className="modal-title">{props.data[props.index].title}</div>
         <div className="modal-date">
-          2023-05-09
+          {props.data[props.index].date}
           <span>👍</span>
-          <span>5</span>
+          <span>{props.data[props.index].like}</span>
         </div>
-        <div className="modal-contents">web programming is funny subject</div>
+        <div className="modal-contents">{props.data[props.index].content}</div>
 
         <button
           className="modal-button"

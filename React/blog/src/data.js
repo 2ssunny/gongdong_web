@@ -4,7 +4,7 @@ let data = [
     title: "Web Programming",
     date: "2023-05-09",
     content: "subject learn about web programming",
-    like: 5,
+    like: 10,
   },
   {
     id: 1,
