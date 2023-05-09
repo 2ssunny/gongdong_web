@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { useState } from "react";
 import data from "./data.js";
@@ -33,7 +32,7 @@ function App() {
         <Modal
           modal={modal}
           setModal={setModal}
-          data={datas}
+          datas={datas}
           setDatas={setDatas}
           index={index}
         ></Modal>
@@ -48,13 +47,13 @@ function Modal(props) {
   return (
     <div className="modal">
       <div className="modal-body">
-        <div className="modal-title">{props.data[props.index].title}</div>
+        <div className="modal-title">{props.datas[props.index].title}</div>
         <div className="modal-date">
-          {props.data[props.index].date}
+          {props.datas[props.index].date}
           <span>👍</span>
-          <span>{props.data[props.index].like}</span>
+          <span>{props.datas[props.index].like}</span>
         </div>
-        <div className="modal-contents">{props.data[props.index].content}</div>
+        <div className="modal-contents">{props.datas[props.index].content}</div>
 
         <button
           className="modal-button"
@@ -63,6 +62,17 @@ function Modal(props) {
           }}
         >
           check
+        </button>
+        <button
+          className="modal-button"
+          onClick={() => {
+            let copy = [...props.datas];
+            copy.splice(props.index, 1);
+            props.setDatas(copy);
+            props.modal ? props.setModal(false) : props.setModal(true);
+          }}
+        >
+          delete
         </button>
       </div>
     </div>
